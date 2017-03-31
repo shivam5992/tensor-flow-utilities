@@ -24,8 +24,8 @@ with tf.Session() as sess:
 
 	for i in range(len(Xte)):
 
-		# Get nearast neighor
-		nn_index = sess.run(pred, feed_dict={xtr: Xtr, xte:Xte[i, :]})
+		# Get nearest neighor
+		nn_index = sess.run(pred, feed_dict={xtr:Xtr, xte:Xte[i, :]})
 		print ("Test", i, "Prediction:", np.argmax(Ytr[nn_index]), "True Class:", np.argmax(Yte[i]))
 
 		if np.argmax(Ytr[nn_index]) == np.argmax(Yte[i]):
