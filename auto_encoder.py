@@ -11,7 +11,7 @@ mnist = input_data.read_data_sets("MNIST_data", one_hot=True)
 # params 
 
 learning_rate = 0.1
-training_epochs = 20
+training_epochs = 2
 batch_size = 256 
 display_step = 1 
 examples_to_show = 10
@@ -40,7 +40,7 @@ biases = {
 def encoder(x):
 	layer_1 = tf.nn.sigmoid(tf.add(tf.matmul(x, weights['encoder_h1']), biases['encoder_b1']))
 
-	layer_2 = tf.nn.sigmoid(tf.add(tf.matmul(layer_1, weights['encoder_h1']), biases['encoder_b1']))
+	layer_2 = tf.nn.sigmoid(tf.add(tf.matmul(layer_1, weights['encoder_h2']), biases['encoder_b2']))
 
 	return layer_2
 
