@@ -88,13 +88,15 @@ for epoch in range(training_epochs):
 
 
 output = sess.run(Y_pred, feed_dict={X: mnist.test.images[:1]})
-print output[0]
 
 import numpy as np
 import matplotlib.pyplot as plt
-# output = sess.run(Y_pred, feed_dict={X: mnist.test.images[1]})
+
 f, a = plt.subplots(2, 10, figsize=(10, 2))
-a[0][0].imshow(np.reshape(mnist.test.images[0], (28, 28)))
-a[1][0].imshow(np.reshape(output[0], (28, 28)))
-f.show()
+for i, x in enumerate(output):
+	a[0][0].imshow(np.reshape(mnist.test.images[i], (28, 28)))
+	a[1][0].imshow(np.reshape(output[i], (28, 28)))
+	if i == 9:
+		break
+f.savefig('f.png')
 plt.draw()
