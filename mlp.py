@@ -56,8 +56,9 @@ with tf.Session() as sess:
         total_batch = int(mnist.train.num_examples/batch_size)
         for i in range(total_batch):
             batch_x, batch_y = mnist.train.next_batch(batch_size)
-            _, c = sess.run([optimizer, cost], feed_dict={x: batch_x, y: batch_y})
-            avg_cost += c / total_batch
+            # _, c = sess.run([optimizer, cost], feed_dict={x: batch_x, y: batch_y})
+            print len(batch_x)
+            # avg_cost += c / total_batch
         if epoch % display_step == 0:
             print ("Epoch:", '%04d' % (epoch+1), "cost=","{:.9f}".format(avg_cost))
 
