@@ -32,3 +32,5 @@ product = tf.matmul(matrix1, matrix2)
 
 with tf.Session() as sess:
 	print(sess.run(product))
+
+

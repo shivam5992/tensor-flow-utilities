@@ -44,6 +44,10 @@ with tf.Session() as sess:
 		for i in range(total_batch):
 			batch_xs, batch_ys = mnist.train.next_batch(batch_size)
 
+			print batch_ys
+			exit(0)
+
+
 			_, c = sess.run([optimizer, cost], feed_dict={x: batch_xs,
 														  y: batch_ys})
 			# Compute average loss
